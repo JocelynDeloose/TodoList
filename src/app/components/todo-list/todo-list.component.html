@@ -1,0 +1,12 @@
+
+  <h1>List of To do List</h1>
+  <ul>
+    <li *ngFor=" let todo of todoList">
+ <div>
+  <h3>{{todo.name}}</h3>
+  <p>{{todo.description}}</p>
+  <span>{{todo.priority}}</span>
+
+</div>
+</li>
+</ul>
