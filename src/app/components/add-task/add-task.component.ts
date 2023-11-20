@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { orderForm } from 'src/app/Forms/FormsModule';
 import { TodoListService } from 'src/app/Service/todo-list.service';
 @Component({
@@ -20,9 +20,9 @@ constructor(
 
 ngOnInit(): void {
  this.orderForm = this.fb.group({
-  name: String,
-  description: String,
-  priority: String
+  name: new FormControl(''),
+  description: new FormControl(''),
+  priority: new FormControl('')
  });
 }
 

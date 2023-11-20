@@ -9,14 +9,31 @@ import { Todo } from 'src/app/models/todoList';
 })
 export class TodoListComponent implements OnInit {
  todoList!: Todo | any;
-  
+
  constructor(private todoListService : TodoListService){}
 
-  ngOnInit(): void {
-     this.todoListService.getAll().subscribe((data: any) => {
-      this.todoList = data;
-    });
+ 
+ ngOnInit(): void {
+   this.getTodoList();
+   
   }
+  getTodoList(){
+ this.todoListService.getAll().subscribe((data: any) => {
+       this.todoList = data;
+       console.log(data);
+     });
+  }
+
+deleteATask(id: number) {
+this.todoListService.deleteById(id).subscribe(x =>
+  console.log(x)
+);
+setTimeout(() => {
+  this.getTodoList();
+}, 1000);
+//this.getTodoList();
+}
+
 
   
   
